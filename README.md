@@ -1,2 +1,2 @@
 # Odin-RPS
-A simple website built with HTML, CSS and Javascript
+A simple rock paper scissor game website built with HTML, CSS and Javascript
