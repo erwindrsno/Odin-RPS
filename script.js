@@ -40,12 +40,22 @@ function playRound(playerSelection, computerSelection) {
 }
 
 console.log("===GAME BEGIN===");
-const btn = document.querySelectorAll('btn');
-if(btn != null){
+const btnList = document.querySelectorAll('.btn');
+if(btnList != null){
   console.log("not null sans");
-  console.log(btn);
-  btn.addEventListener('click', () => {
-    console.log("hello");
-  });
+  for (let i = 0; i < 3; i++){
+    btnList[i].addEventListener('click', () => {
+      const playerSelection = btnList[i].value;
+
+      let computerSelection = getComputerChoice();
+      const result = playRound(playerSelection, computerSelection);
+      console.log(result);
+
+      const div = document.getElementById('output');
+      const p = document.createElement('p');
+      p.textContent = result;
+      
+      div.appendChild(p);
+    });
+  }
 }
-// game();
