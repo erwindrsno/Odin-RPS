@@ -40,22 +40,59 @@ function playRound(playerSelection, computerSelection) {
 }
 
 console.log("===GAME BEGIN===");
+let playerScore = 0;
+let computerScore = 0;
+let roundCounter = 1;
+
 const btnList = document.querySelectorAll('.btn');
 if(btnList != null){
   console.log("not null sans");
+
+  const pPlayer = document.querySelector(".pScore");
+  const pComputer = document.querySelector(".cScore");
+  const round = document.getElementById("round");
+  const winner = document.querySelector(".winner");
+  const pResult = document.querySelector(".result");
+
   for (let i = 0; i < 3; i++){
     btnList[i].addEventListener('click', () => {
       const playerSelection = btnList[i].value;
 
       let computerSelection = getComputerChoice();
       const result = playRound(playerSelection, computerSelection);
+      if(result === "player wins"){
+        playerScore++;
+        pPlayer.textContent = playerScore;
+        winner.textContent = "<=";
+      }
+      else if(result === "computer wins"){
+        computerScore++;
+        pComputer.textContent = computerScore;
+        winner.textContent = "=>"
+      }
+      else{
+        winner.textContent = "<=>";
+      }
+
+      if(playerScore == 5 || computerScore == 5){
+        console.log("winner declared");
+        if(playerScore > computerScore){
+          console.log("if entered");
+          pResult.textContent = "Congrats! you win.";
+        }
+        else{
+          pResult.textContent = "Better luck next time.";
+        }
+      }
+      roundCounter++;
+      round.textContent = "Round " + roundCounter;
       console.log(result);
 
-      const div = document.getElementById('output');
-      const p = document.createElement('p');
-      p.textContent = result;
+      // const div = document.getElementById('output');
+      // const p = document.createElement('p');
+      // p.textContent = result;
       
-      div.appendChild(p);
+      // div.appendChild(p);
     });
   }
 }

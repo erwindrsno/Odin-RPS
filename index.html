@@ -7,10 +7,35 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="input">
-      <input type="button" name="rock" value="Rock" class="btn">
-      <input type="button" name="paper" value="Paper" class="btn">
-      <input type="button" name="scissor" value="Scissor" class="btn">
+    <div class="wrapper">
+
+      <div class="title">
+        <h1>Rock, paper, and scissors!</h1>
+      </div>
+
+      <div class="input">
+        <input type="button" name="rock" value="Rock" class="btn">
+        <input type="button" name="paper" value="Paper" class="btn">
+        <input type="button" name="scissor" value="Scissor" class="btn">
+      </div>
+
+      <div class="output">
+        <div class="score player">
+          <p>YOU</p>
+          <p class="pScore">0</p>
+        </div>
+        <div class="round">
+          <p id="round">Round 1</p>
+          <p class="winner"><=></p>
+        </div>
+        <div class="score computer">
+          <p>CPU</p>
+          <p class="cScore">0</p>
+        </div>
+      </div>
+
+      <div class="result">#</div>
+
     </div>
   </body>
   <script src="script.js"></script>
