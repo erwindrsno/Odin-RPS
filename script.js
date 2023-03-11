@@ -10,10 +10,6 @@ function getComputerChoice() {
   }
 }
 
-// for (let i = 0; i < 10; i++) {
-//   console.log(getComputerChoice());
-// }
-
 function playRound(playerSelection, computerSelection) {
   let playerChoice = playerSelection.toLowerCase();
   if (playerChoice === "rock") {
@@ -43,13 +39,23 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("Input please");
-    let computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
+console.log("===GAME BEGIN===");
+const btnList = document.querySelectorAll('.btn');
+if(btnList != null){
+  console.log("not null sans");
+  for (let i = 0; i < 3; i++){
+    btnList[i].addEventListener('click', () => {
+      const playerSelection = btnList[i].value;
+
+      let computerSelection = getComputerChoice();
+      const result = playRound(playerSelection, computerSelection);
+      console.log(result);
+
+      const div = document.getElementById('output');
+      const p = document.createElement('p');
+      p.textContent = result;
+      
+      div.appendChild(p);
+    });
   }
 }
-
-console.log("===GAME BEGIN===");
-game();
